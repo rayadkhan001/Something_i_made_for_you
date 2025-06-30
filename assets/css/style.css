@@ -1,0 +1,592 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* FONT-AWESOME */
+i.fas,
+i.far,
+i.fab {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    /* solid icons */
+    font-style: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Base font setup */
+body {
+    font-family: 'Inter', sans-serif;
+    color: white;
+}
+
+/* Handwritten stylish fonts for emotional or poetic elements */
+h1,
+h2.section-title,
+h3,
+.quote,
+.signature,
+#pulseHeart {
+    font-family: 'Dancing Script', cursive;
+}
+
+/* Optional: Improve readability and style for body text */
+p,
+li,
+input,
+textarea,
+button {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+}
+
+/* Semi-bold for emphasis where needed */
+.font-bold {
+    font-weight: 600;
+}
+
+/* Section Default Styling */
+.section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 1.5rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: overlay;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+}
+
+/* Individual Backgrounds */
+#intro {
+    background-image: url('../img/bg_12.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#aboutMe {
+    background-image: url('../img/bg_13.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1.5rem;
+    min-height: 100vh;
+    text-align: center;
+}
+
+/* --- Additional styles for About Me interactive toggles --- */
+.about-me-choices {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 480px;
+    margin: 2rem auto 0 auto;
+}
+
+.choice-btn {
+  background: transparent;
+  border: 2px solid #f472b6;
+  color: #f472b6;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  width: 100%;
+  max-width: 300px;
+  align-self: center;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.choice-btn i {
+  margin-right: 6px;
+}
+
+.choice-btn:hover,
+.choice-btn:focus {
+  background-color: #09122C;
+  color: #E17564;
+  outline: none;
+}
+
+
+.choice-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 480px;
+    background-color: rgba(244, 114, 182, 0.15);
+    padding: 1.25rem 1.5rem;
+    border-radius: 12px;
+    color: #f1f1f1;
+    font-style: italic;
+    text-align: center;
+    display: none;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: auto;
+    cursor: move;
+}
+
+.choice-content.show {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+
+    to {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+}
+
+#aboutYou {
+    background-image: url('../img/bg_3.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#whyThis {
+    background-image: url('../img/bg_8.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.bgt {
+    background: rgba(124, 106, 141, 0.5);
+    border: 2px solid white;
+    opacity: 0.8;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+#storyList,
+#poemList,
+#dreamList {
+    scrollbar-width: thin;
+    scrollbar-color: #f472b6 transparent;
+}
+
+#storyList::-webkit-scrollbar,
+#poemList::-webkit-scrollbar,
+#dreamList::-webkit-scrollbar {
+    width: 6px;
+}
+
+#storyList::-webkit-scrollbar-thumb,
+#poemList::-webkit-scrollbar-thumb,
+#dreamList::-webkit-scrollbar-thumb {
+    background-color: #f472b6;
+    border-radius: 3px;
+}
+
+.edit-input {
+    width: 100%;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.375rem;
+    border: 1px solid #f472b6;
+    background: #7c6a8d;
+    color: #fbcfe8;
+    font-size: 1rem;
+}
+
+.edit-actions {
+    margin-top: 0.25rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+#ourDreams {
+    background-image: url('../img/bg_5.jpg');
+}
+
+.custom_class {
+    background: transparent;
+    border: 2px solid black;
+    padding: 12px;
+}
+
+#closeNote {
+    background-image: url('../img/bg_11.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.section-content {
+    max-width: 720px;
+    margin: auto;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.footer {
+    background-color: #000;
+    color: white;
+}
+
+.footer-inner {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* another custome comment */
+
+/* Section 4 Enhancement */
+#whyThis .content-container {
+    max-width: 720px;
+    margin: auto;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease-in-out;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(255, 192, 203, 0.1);
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(6px);
+    border: 2px solid rgba(255, 192, 203, 0.15);
+}
+
+#whyThis .content-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#whyThis .divider-icon {
+    margin: 0.5rem auto 1.5rem;
+    font-size: 1.5rem;
+    color: #f472b6;
+}
+
+#whyThis .quote {
+    margin-top: 1.5rem;
+    font-style: italic;
+    color: #fbcfe8;
+    font-size: 1.1rem;
+}
+
+#whyThis .timeline {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    font-weight: 600;
+    color: #d1bfe5;
+    flex-wrap: wrap;
+}
+
+#whyThis .timeline li {
+    position: relative;
+}
+
+#whyThis .timeline li::before {
+    content: '•';
+    position: absolute;
+    left: -0.8rem;
+    color: #f472b6;
+}
+
+#whyThis .signature {
+    margin-top: 2rem;
+    font-style: italic;
+    font-size: 1rem;
+    color: #fbcfe8;
+}
+
+#pulseHeart {
+    display: inline-block;
+    margin-left: 6px;
+    color: #f472b6;
+    transition: transform 0.4s ease;
+    cursor: pointer;
+}
+
+#pulseHeart:hover {
+    animation: pulse 1s infinite ease-in-out;
+}
+
+#pulseHeart.active {
+    transform: scale(1.2);
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.25);
+    }
+}
+
+/* fade in from bottom */
+/* Hide all content containers initially except #intro's container */
+.content-container {
+    opacity: 0;
+    transform: translateY(60px);
+    pointer-events: none;
+    transition: none;
+    /* no transition before visible */
+}
+
+/* But keep #intro visible right away */
+#intro .content-container {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* fade-in-up animation */
+.fade-in-up {
+    animation: fadeInUp 2s ease-out forwards;
+    pointer-events: auto;
+    /* enable interaction */
+    will-change: opacity, transform;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* heading grad-color */
+.romantic-gradient-heading {
+  background: linear-gradient(
+    270deg,
+    #790046,
+    #ff85b3,
+    #ffb9d5,
+    #ffc8ec,
+    #ff85b3,
+    #ff5e78
+  );
+  background-size: 600% 600%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: romanticGradient 8s ease infinite;
+}
+
+@keyframes romanticGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+/* paragraph grad-color */
+.romantic-paragraph {
+  background: linear-gradient(
+    90deg,
+    #ffc8ec,
+    #ffa3c4,
+    #7f0936,
+    #ffb6c1,
+    #ffc8ec
+  );
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: romanticFadeReverse 12s ease infinite;
+  font-weight: 400;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+@keyframes romanticFadeReverse {
+  0% { background-position: 100% 50%; }
+  50% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+/* 1> another grad-color-movement start*/
+.text-gradient-rose-deep {
+  background: linear-gradient(
+    90deg,
+    #FFEAD8,
+    #E8988A,
+    #9B177E,
+    #2A1458,
+    #FFEAD8
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMoveWave 8s ease-in-out infinite;
+}
+
+@keyframes gradientMoveWave {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+/* 1> another grad-color-movement end*/
+
+/* 2> another grad-color-movement start*/
+.text-gradient-soft-dream {
+  background: linear-gradient(
+    90deg,
+    #F7CFD8,
+    #F4F8D3,
+    #A6D6D6,
+    #8E7DBE,
+    #F7CFD8
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientWaveSoftDream 9s ease-in-out infinite;
+}
+
+@keyframes gradientWaveSoftDream {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+/* 2> another grad-color-movement end*/
+
+/* 3> another one with grad color movement start*/
+.text-gradient-deep-rose {
+  background: linear-gradient(
+    90deg,
+    #EF88AD,
+    #A53860,
+    #670D2F,
+    #D4C9BE,
+    #EF88AD
+  );
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientFlowDeepRose 10s ease-in-out infinite;
+}
+
+@keyframes gradientFlowDeepRose {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+/* 3> another one with grad color movement end*/
+
+/* 4> anoooooother grad-color-movement start*/
+.text-gradient-muted-night {
+  background: linear-gradient(
+    90deg,
+    #F1EFEC,
+    #D4C9BE,
+    #123458,
+    #00FF9C,
+    #F1EFEC
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientWaveMutedNight 10s ease-in-out infinite;
+}
+
+@keyframes gradientWaveMutedNight {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+/* 4> another grad-color-movement end */
+/* 8 multi-color grad text start */
+.text-gradient-vivid-fusion {
+  background: linear-gradient(
+    90deg,
+    #F6DC43,
+    #FF2DF1,
+    #A5158C,
+    #410445,
+    #FFDEDE,
+    #3E001F,
+    #FFE5AD,
+    #F6DC43
+  );
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientFlowVividFusion 12s ease-in-out infinite;
+}
+
+@keyframes gradientFlowVividFusion {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 8 multi-color grad text end */
+/* again grad text movement start */
+.text-gradient-blush-indigo {
+  background: linear-gradient(
+    90deg,
+    #FFD18E,   /* Light yellow */
+    #93329E,   /* Bold indigo */
+    #FFA38F,   /* Soft coral */
+    #FF7EE2,   /* Light pink */
+    #FF7777,   /* Rosy red */
+    #332FD0,   /* Indigo again for contrast */
+    #FFD18E    /* Repeats for seamless loop */
+  );
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: blushIndigoWave 10s ease-in-out infinite;
+}
+
+@keyframes blushIndigoWave {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+/* again grad text movement end */
